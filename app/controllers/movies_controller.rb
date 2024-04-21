@@ -29,12 +29,11 @@ class MoviesController < ApplicationController
   end
 
   def delete
-    @the_id = params.fetch("path_id")
-    @m = Movie.where({:id => @the_id })
-    @m.destory
-    
+    the_id = params.fetch("an_id")
+    m = Movie.where({:id => the_id })
+    the_movie = m.at(0)
+    the_movie.destroy
     redirect_to("/movies")
-
   end
 
 
