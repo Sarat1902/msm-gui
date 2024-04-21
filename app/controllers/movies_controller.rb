@@ -28,4 +28,15 @@ class MoviesController < ApplicationController
     redirect_to("/movies")
   end
 
+  def delete
+    @the_id = params.fetch("path_id")
+    @m = Movie.where({:id => @the_id })
+    @m.destory
+    
+    redirect_to("/movies")
+
+  end
+
+
+
 end
